@@ -766,7 +766,8 @@ async function uploadBukti(file){
       return null;
     }
     toast('✅ Bukti berhasil diupload!','s');
-    return d.data.url; // URL gambar langsung
+    // Gunakan display_url (lebih stabil) atau url_viewer untuk preview
+    return d.data.display_url||d.data.url;
   }catch(err){
     console.error('Upload exception:',err);
     toast('❌ Upload gagal: '+err.message,'e');
