@@ -609,9 +609,21 @@ input[type="checkbox"]{width:16px;height:16px;cursor:pointer;accent-color:var(--
   <div class="modal" style="max-width:390px;">
     <div class="mHead"><div class="mTitle">🏷️ Tambah Kategori</div><button class="mClose" onclick="closeModal('mKat')">✕</button></div>
     <div class="fGroup"><label>Nama Kategori *</label><input type="text" id="k-n" placeholder="Contoh: Hobi, Liburan"/></div>
-    <div class="grid2">
-      <div class="fGroup"><label>Tipe *</label><select id="k-t"><option value="pemasukan">Pemasukan</option><option value="pengeluaran">Pengeluaran</option></select></div>
-      <div class="fGroup"><label>Icon (Emoji)</label><input type="text" id="k-i" placeholder="🎮" maxlength="2"/></div>
+    <div class="fGroup"><label>Tipe *</label><select id="k-t"><option value="pemasukan">Pemasukan</option><option value="pengeluaran">Pengeluaran</option></select></div>
+    <div class="fGroup">
+      <label>Icon (Emoji)</label>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+        <div id="k-preview" style="font-size:32px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--bg);border-radius:10px;border:2px solid var(--border);">📦</div>
+        <input type="text" id="k-i" value="📦" maxlength="2" style="width:80px;font-size:18px;text-align:center;padding:8px;" oninput="document.getElementById('k-preview').textContent=this.value||'📦'"/>
+        <span style="font-size:11px;color:var(--text2);">Klik emoji di bawah atau ketik manual</span>
+      </div>
+      <!-- Emoji Picker -->
+      <div style="border:1.5px solid var(--border);border-radius:12px;overflow:hidden;">
+        <!-- Category tabs -->
+        <div style="display:flex;overflow-x:auto;background:var(--bg);border-bottom:1px solid var(--border);padding:4px 6px;gap:2px;" id="emojiCatTabs"></div>
+        <!-- Emoji grid -->
+        <div id="emojiGrid" style="display:grid;grid-template-columns:repeat(8,1fr);gap:2px;padding:8px;max-height:180px;overflow-y:auto;background:var(--card);"></div>
+      </div>
     </div>
     <div class="mFoot"><button class="btnS" onclick="closeModal('mKat')">Batal</button><button class="btnP" onclick="saveKat()">💾 Simpan</button></div>
   </div>
